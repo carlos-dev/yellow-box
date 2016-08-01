@@ -1,0 +1,14 @@
+{
+  "name": "yelow-box",
+  "version": "1.0.0",
+  "description": "Play music tracks with a raspberry, an arduino and a motion sensor",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Carlos Sánchez",
+  "license": "ISC",
+  "dependencies": {
+    "player": "^0.6.1"
+  }
+}
