@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "dotenv": "^2.0.0",
+    "lodash": "^4.14.1",
     "player": "^0.6.1"
   }
 }
