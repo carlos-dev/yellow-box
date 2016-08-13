@@ -1,8 +1,3 @@
-var RandomPlayer = require('./random-player')
+var randomPlayer = require('./random-player')
 
-var player = new RandomPlayer()
-player.play()
-
-setTimeout(() => {
-  player.stop()
-}, 3000)
+randomPlayer.play()

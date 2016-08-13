@@ -1,9 +1,8 @@
 require('dotenv').config()
-var Player = require('player')
 var colors = require('colors')
+var omx = require('omxdirector')
 var fs = require('fs')
 var shuffle = require('lodash/shuffle')
-
 const addPath = (fileName) => {
   return `${process.env.MUSIC_FOLDER}/${fileName}`
 }
@@ -23,28 +22,19 @@ const getRandomizedPlaylist = () => {
   })
 }
 
-class RandomPlayer {
-  constructor () {
-    this.player = null
-  }
-  play () {
-    getRandomizedPlaylist().then((files) => {
-      this.player = new Player(files)
-      console.log(colors.yellow('Playlist: ' + files))
-      this.player.play()
-      this.player.on('playing', ({src, _name}) => {
-        console.log(colors.green('Playing ' + _name))
-      })
-      this.player.on('error', () => {
-        // playlist end
-        this.player.play()
-      })
-    })
-  }
-  stop () {
-    console.log(colors.red('Stop'))
-    this.player.stop()
-  }
+const play = () => {
+	getRandomizedPlaylist().then((files) => {
+		omx.play(files, {loop: true})
+		console.log(colors.yellow(files))
+	})
 }
 
-module.exports = RandomPlayer
+const stop = () => {
+	console.log(colors.red('Stop'))
+	omx.stop()
+}
+
+module.exports = {
+	play,
+	stop
+}
