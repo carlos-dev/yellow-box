@@ -1,13 +1,12 @@
 var randomPlayer = require('./random-player')
 var sensor = require('./sensor')
+const log = require('./log')
 
-console.log('Sensor & player ready')
+log('info', 'initializing app')
 
 sensor.on('start', () => {
-	console.log('play')
 	randomPlayer.play()
 })
 sensor.on('stop', () => {
-	console.log('stop')
         randomPlayer.stop()
 })
